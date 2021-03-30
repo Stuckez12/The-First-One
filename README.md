@@ -3,31 +3,46 @@
 <head>
 	
 	<title>My First Web Page</title>
+
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
 	
 </head>
 <body>
+
+
+
 <div id="mapid" style="width: 100%; height: 700px;"></div>
 <script>
+
 	var mymap = L.map('mapid').setView([51.14471, -2.69866], 13);
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+
+	//L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+	//	maxZoom: 20,
+	//	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+	//		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	//	id: 'mapbox/streets-v11',
+	//	tileSize: 512,
+	//	zoomOffset: -1
+	//}).addTo(mymap);
+	L.titleLayer('https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxNativeZoom: 19,
 		maxZoom: 20,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
+		attribution: '&copy, <a href="https://www.openstreetmap.org/copyright">Openstreetmap</a> contributors'
 	}).addTo(mymap);
         var marker = L.marker([51.14471, -2.69866]).addTo(mymap);
-	var college = L.marker([51.129852, -2.7334955]).addTo(mymap);
-	var college1 = L.marker([51.129952, -2.7334955]).addTo(mymap);
+	var cblock = L.marker([51.129852, -2.7334955]).addTo(mymap);
+	var mblock = L.marker([51.129212, -2.731891]).addTo(mymap);
+	var greggs = L.marker([51.1263126,-2.7409586]).addTo(mymap);
+	greggs.bindPopup("<b>Greggs!</b>").openPopup();
+	mblock.bindPopup("<b>M block</b><br>Strode College").openPopup();
 	marker.bindPopup("<img style='width:250px' src='tor.jpg'/><br /><b>Glastonbury Tor</b>").openPopup();
-	college.bindPopup("<b>C Block</b><br>Strode College").openPopup();
+	cblock.bindPopup("<b>C Block</b><br>Strode College").openPopup();
 </script>
-</body>
-</html>
