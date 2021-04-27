@@ -3,9 +3,10 @@
 <head>
 	
 	<title>My First Web Page</title>
+
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="L.Control.MousePosition.css" />
@@ -17,17 +18,22 @@
     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
 </head>
 <body>
+
+
+
 <div id="mapid"></div>
 <script>
+
 	
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-       	maxZoom: 20,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-	  }).addTo(mymap);
+
+	//L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+       	//maxZoom: 20,
+	//	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+	//		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	//	id: 'mapbox/streets-v11',
+	//	tileSize: 512,
+	//	zoomOffset: -1
+	//}).addTo(mymap);
 	var mymap = L.map('mapid', {
             center: [51.14471, -2.69866],
 	    zoom: 13,
@@ -49,30 +55,34 @@
         });
 	var marker = L.marker([51.14471, -2.69866]).addTo(mymap);
 	marker.bindPopup("<img class='popup' src='tor.jpg'/><br /><b>Glastonbury Tor</b>").openPopup();
-
+        
 	var college = L.marker([51.129852, -2.7334955]).addTo(mymap);
 	college.bindPopup("<b>C Block</b><br>Strode College").openPopup();
-
+	
 	var college1 = L.marker([51.129952, -2.7334955]).addTo(mymap);
-	marker.bindPopup("<img class='popup' src='tor.jpg'/><br /><b>Glastonbury Tor</b>").openPopup();
-	college.bindPopup("<b>C Block</b><br>Strode College").openPopup();
-
-
-
+	
+	
+	
         var baseMaps = {
            "OSM ": osm,
            "Google": google
         };
+
         var overlayMaps = {
             "Marker": marker,
             "College": college,
             "College 1": college1
        };
 	
+
        L.control.layers(baseMaps, overlayMaps).addTo(mymap);
        L.control.mousePosition().addTo(mymap);
+
 	mymap.addControl(new L.Control.Fullscreen());
 	omnivore.csv('strode.csv').addTo(mymap);
 </script>
+
+
+
 </body>
 </html>
